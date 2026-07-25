@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ChevronLeft, ChevronRight, Camera, ExternalLink } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, Camera, ExternalLink, ArrowRight, Play } from 'lucide-react'
 import { siteConfig } from '../data/siteConfig'
 import { galleryCategories, galleryImages } from '../data/faq'
 import hairMultilayerCut from '../assets/hair-multilayer-cut.jpg'
@@ -186,6 +187,25 @@ export default function Gallery() {
                 <ExternalLink className="w-4 h-4" />
               </a>
             </div>
+          </ScrollReveal>
+
+          {/* Treatments Gallery Cross-Link */}
+          <ScrollReveal>
+            <Link
+              to="/treatments-gallery"
+              className="group mt-12 block rounded-2xl border border-gold/10 bg-gradient-to-r from-primary/5 to-secondary/5 hover:from-primary/10 hover:to-secondary/10 p-6 sm:p-8 transition-all"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <Play className="w-6 h-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-serif text-lg font-bold text-charcoal">See Our Treatments in Action</h3>
+                  <p className="text-charcoal-light text-sm mt-0.5">Watch real treatment videos and before/after results from our advanced procedures.</p>
+                </div>
+                <ArrowRight className="w-5 h-5 text-primary shrink-0 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
           </ScrollReveal>
         </div>
       </section>

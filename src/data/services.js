@@ -88,6 +88,8 @@ export const serviceCategories = [
       { name: "Laser Hair Removal", description: "Targeted laser sessions for permanent reduction of hair growth — comfortable, precise, and clinically effective." },
       { name: "Tattoo Removal", description: "Safe and gradual tattoo fading and removal using certified laser equipment with minimal discomfort." },
       { name: "Warts Removal", description: "Quick, hygienic, and effective wart removal procedures performed with professional medical-grade tools." },
+      { name: "Gun Shot for Ears (Ear Piercing)", description: "Safe, professional ear piercing using a sterilized piercing gun — quick, precise, and hygienic with medical-grade studs." },
+      { name: "Ear Lobe Treatment", description: "Specialized ear lobe care and treatment for stretched, torn, or damaged ear lobes — restoring shape and health." },
     ],
   },
 ];
@@ -98,3 +100,11 @@ export const servicePreviewCards = serviceCategories.map(({ id, title, icon, des
   icon,
   description,
 }));
+
+export const salonCategories = serviceCategories.filter(c =>
+  ['skin-care', 'hair-care', 'nail-care', 'body-care'].includes(c.id)
+);
+
+export const bridalCategory = serviceCategories.find(c => c.id === 'bridal');
+
+export const advancedCategory = serviceCategories.find(c => c.id === 'advanced');

@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin, Clock, MessageCircle, Star, Navigation } from 'lucide-react'
 import { siteConfig, navLinks } from '../data/siteConfig'
-import { serviceCategories } from '../data/services'
+
+const serviceLinks = [
+  { label: 'Salon Services', path: '/services/salon' },
+  { label: 'Bridal & Makeover', path: '/services/bridal-makeover' },
+  { label: 'Advanced Treatments', path: '/services/advanced-treatments' },
+]
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -52,13 +57,13 @@ export default function Footer() {
               Services
             </h4>
             <ul className="space-y-2.5">
-              {serviceCategories.map((s) => (
-                <li key={s.id}>
+              {serviceLinks.map((s) => (
+                <li key={s.path}>
                   <Link
-                    to="/services"
+                    to={s.path}
                     className="text-sm text-white/60 hover:text-secondary transition-colors"
                   >
-                    {s.title}
+                    {s.label}
                   </Link>
                 </li>
               ))}
