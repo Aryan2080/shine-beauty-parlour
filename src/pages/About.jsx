@@ -1,7 +1,22 @@
 import { Link } from 'react-router-dom'
-import { User, Heart, ShieldCheck, Zap, Sparkles, ArrowRight, Camera } from 'lucide-react'
+import { Heart, ShieldCheck, Zap, Sparkles, ArrowRight } from 'lucide-react'
 import { siteConfig } from '../data/siteConfig'
 import subhashiniImg from '../assets/subhashini.jpg'
+import bridalGreenSaree from '../assets/bridal-green-saree.jpg'
+import bridalGoldPinkSaree from '../assets/bridal-gold-pink-saree.jpg'
+import partyRedSaree from '../assets/party-red-saree.jpg'
+import partyGoldSaree from '../assets/party-gold-saree.jpg'
+import halfsareePinkGold from '../assets/halfsaree-pink-gold.jpg'
+import halfsareeMaroonStage from '../assets/halfsaree-maroon-stage.jpg'
+
+const glimpsePhotos = [
+  { src: bridalGreenSaree, alt: 'Bridal makeup look with green Kanjivaram saree by Shine Beauty Parlour' },
+  { src: partyRedSaree, alt: 'Party makeup look with red saree by Shine Beauty Parlour' },
+  { src: halfsareePinkGold, alt: 'Half-saree ceremony draping in pink and gold by Shine Beauty Parlour' },
+  { src: bridalGoldPinkSaree, alt: 'Bridal makeup with gold and pink silk saree by Shine Beauty Parlour' },
+  { src: partyGoldSaree, alt: 'Party makeup with gold Kanjivaram saree by Shine Beauty Parlour' },
+  { src: halfsareeMaroonStage, alt: 'Half-saree ceremony makeover with maroon lehenga by Shine Beauty Parlour' },
+]
 import usePageMeta from '../hooks/usePageMeta'
 import ScrollReveal from '../components/ScrollReveal'
 import SectionHeading from '../components/SectionHeading'
@@ -196,10 +211,10 @@ export default function About() {
           </ScrollReveal>
 
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
-            {[1,2,3,4,5,6].map((n, i) => (
-              <ScrollReveal key={n} delay={i * 0.05}>
-                <div className="aspect-square rounded-xl overflow-hidden border border-gold/10 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                  <Camera className="w-6 h-6 text-primary/30" />
+            {glimpsePhotos.map((photo, i) => (
+              <ScrollReveal key={i} delay={i * 0.05}>
+                <div className="aspect-square rounded-xl overflow-hidden border border-gold/10">
+                  <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover" loading="lazy" />
                 </div>
               </ScrollReveal>
             ))}

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Phone, MessageCircle, Mail, MapPin, Clock, Camera, Navigation } from 'lucide-react'
+import { Phone, MessageCircle, Mail, MapPin, Clock, Navigation } from 'lucide-react'
 import { siteConfig } from '../data/siteConfig'
 import { serviceCategories } from '../data/services'
 import usePageMeta from '../hooks/usePageMeta'
@@ -200,13 +200,13 @@ export default function Contact() {
                       className="w-11 h-11 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white hover:shadow-lg hover:-translate-y-0.5 transition-all"
                       aria-label="Follow on Instagram"
                     >
-                      <Camera className="w-5 h-5" />
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                     </a>
                     <a
                       href={`https://wa.me/${siteConfig.whatsapp}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-11 h-11 rounded-xl bg-green-500 flex items-center justify-center text-white hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                      className="w-11 h-11 rounded-xl bg-[#25D366] flex items-center justify-center text-white hover:shadow-lg hover:-translate-y-0.5 transition-all"
                       aria-label="Chat on WhatsApp"
                     >
                       <MessageCircle className="w-5 h-5" />
@@ -225,13 +225,16 @@ export default function Contact() {
                   Get Directions on Google Maps
                 </a>
 
-                {/* Map Placeholder */}
-                <div className="bg-ivory rounded-3xl overflow-hidden border border-gold/10 aspect-video flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <MapPin className="w-10 h-10 text-primary/30 mx-auto mb-2" />
-                    <p className="text-primary/50 text-sm font-medium">[EMBED GOOGLE MAP HERE]</p>
-                    <p className="text-primary/40 text-xs mt-1">Replace with Google Maps iframe</p>
-                  </div>
+                {/* Google Map */}
+                <div className="bg-ivory rounded-3xl overflow-hidden border border-gold/10 aspect-video">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.651375320862!2d80.63964357491484!3d16.54368878420665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e5b738eaabbf%3A0xf9e9c57631a7f94!2sShine%20Beauty%20Parlour!5e0!3m2!1sen!2sin!4v1784973752849!5m2!1sen!2sin"
+                    title="Shine Beauty Parlour location on Google Maps"
+                    className="w-full h-full border-0"
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                  />
                 </div>
               </div>
             </ScrollReveal>
