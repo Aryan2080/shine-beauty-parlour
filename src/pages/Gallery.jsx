@@ -62,7 +62,7 @@ const colors = [
 ]
 
 export default function Gallery() {
-  usePageMeta('Gallery', 'Browse our portfolio of bridal looks, party makeup, hair styling, saree draping, and skin care transformations at Shine Beauty Parlour, Vijayawada.')
+  usePageMeta('Bridal Makeup, Party Makeup & Makeover Gallery | Shine Beauty Parlour Vijayawada', 'See real looks created by Shine Beauty Parlour — bridal makeup, party makeup, hair styling, saree draping, and complete makeovers. Serving Vijayawada for 15+ years.')
   const [activeCategory, setActiveCategory] = useState('All')
   const [lightboxIndex, setLightboxIndex] = useState(null)
 

@@ -1,14 +1,20 @@
 import { Star, ExternalLink } from 'lucide-react'
 import { siteConfig } from '../data/siteConfig'
 import { testimonials } from '../data/testimonials'
+import { buildReviewSchemas } from '../data/structuredData'
 import usePageMeta from '../hooks/usePageMeta'
 import ScrollReveal from '../components/ScrollReveal'
 import PageTransition from '../components/PageTransition'
+import JsonLd from '../components/JsonLd'
 
 export default function Testimonials() {
-  usePageMeta('Testimonials', 'Read real 5-star reviews from happy clients of Shine Beauty Parlour, Vijayawada. Bridal makeup, skin care, laser treatments — see what our clients say.')
+  usePageMeta('Real Client Reviews of Shine Beauty Parlour | 5.0★ Google Rating', 'See what real clients say about their experience at Shine Beauty Parlour, Vijayawada\'s top-rated beauty clinic with a 5.0-star Google rating across 10,000+ happy customers.')
+
+  const reviewSchemas = buildReviewSchemas(testimonials)
+
   return (
     <PageTransition>
+      {reviewSchemas.map((schema, i) => <JsonLd key={i} data={schema} />)}
       {/* Page Hero */}
       <section className="pt-28 pb-16 lg:pt-36 lg:pb-20 bg-gradient-to-b from-blush to-ivory">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

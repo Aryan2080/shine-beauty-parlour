@@ -33,7 +33,7 @@ const gridColors = [
 ]
 
 export default function TreatmentsGallery() {
-  usePageMeta('Treatments Gallery', 'Watch real advanced treatment results at Shine Beauty Parlour, Vijayawada — ear piercing, ear lobe treatment, and machinery treatments in action. Real clients, real results.')
+  usePageMeta('Laser Treatment, Tattoo Removal & Ear Piercing Before/After Gallery', 'See real results of laser hair removal, tattoo removal, ear piercing, and advanced skin treatments performed at Shine Beauty Parlour, Vijayawada\'s trusted clinic for 15+ years.')
 
   const [activeCategory, setActiveCategory] = useState('All')
   const [lightboxIndex, setLightboxIndex] = useState(null)

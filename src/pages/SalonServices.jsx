@@ -9,7 +9,7 @@ import CTABanner from '../components/CTABanner'
 import PageTransition from '../components/PageTransition'
 
 export default function SalonServices() {
-  usePageMeta('Salon Services', 'Skin care, hair styling, nail art, full body waxing & more salon services in Vijayawada. View the complete service list at Shine Beauty Parlour.')
+  usePageMeta('Beauty Parlour & Hair Salon Services in Vijayawada', 'Full salon services including skin care, hair care, nail care, and full body care & waxing, by expert professionals. Located in Ajit Singh Nagar, Vijayawada.')
 
   return (
     <PageTransition>

@@ -4,7 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Sparkles, Crown, Zap, ArrowRight, Plus, Minus } from 'lucide-react'
 import { siteConfig } from '../data/siteConfig'
 import { faqItems } from '../data/faq'
+import { serviceSchemas, buildFaqSchema } from '../data/structuredData'
 import usePageMeta from '../hooks/usePageMeta'
+import JsonLd from '../components/JsonLd'
 import ScrollReveal from '../components/ScrollReveal'
 import SectionHeading from '../components/SectionHeading'
 import CTABanner from '../components/CTABanner'
@@ -95,8 +97,12 @@ function FAQSection() {
 export default function ServicesHub() {
   usePageMeta('Services', 'Explore our complete range of beauty services — salon treatments, bridal & makeover packages, and advanced machine treatments. Shine Beauty Parlour, Vijayawada.')
 
+  const faqSchema = buildFaqSchema(faqItems)
+
   return (
     <PageTransition>
+      {serviceSchemas.map((schema, i) => <JsonLd key={i} data={schema} />)}
+      <JsonLd data={faqSchema} />
       <section className="pt-28 pb-16 lg:pt-36 lg:pb-20 bg-gradient-to-b from-blush to-ivory">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>

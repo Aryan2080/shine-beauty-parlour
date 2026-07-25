@@ -1,18 +1,30 @@
 import { useEffect } from 'react'
 
+function setMeta(name, content, attr = 'name') {
+  let el = document.querySelector(`meta[${attr}="${name}"]`)
+  if (!el) {
+    el = document.createElement('meta')
+    el.setAttribute(attr, name)
+    document.head.appendChild(el)
+  }
+  el.content = content
+}
+
 export default function usePageMeta(title, description) {
   useEffect(() => {
     const base = 'Shine Beauty Parlour'
-    document.title = title ? `${title} | ${base}` : `${base} | Bridal Makeup, Beauty & Laser Hair Removal in Vijayawada`
+    const fullTitle = !title
+      ? `${base} | Bridal Makeup, Beauty & Laser Hair Removal in Vijayawada`
+      : title.includes(base) ? title : `${title} | ${base}`
+
+    document.title = fullTitle
 
     if (description) {
-      let meta = document.querySelector('meta[name="description"]')
-      if (!meta) {
-        meta = document.createElement('meta')
-        meta.name = 'description'
-        document.head.appendChild(meta)
-      }
-      meta.content = description
+      setMeta('description', description)
+      setMeta('og:description', description, 'property')
     }
+    setMeta('og:title', fullTitle, 'property')
+    setMeta('og:type', 'website', 'property')
+    setMeta('og:url', window.location.href, 'property')
   }, [title, description])
 }

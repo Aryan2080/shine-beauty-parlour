@@ -8,7 +8,7 @@ import CTABanner from '../components/CTABanner'
 import PageTransition from '../components/PageTransition'
 
 export default function AdvancedTreatments() {
-  usePageMeta('Advanced Treatments', 'Laser hair removal, hydra facial, tattoo removal, warts removal, ear piercing & ear lobe treatment in Vijayawada. Safe, professional-grade equipment at Shine Beauty Parlour.')
+  usePageMeta('Laser Hair Removal, Tattoo Removal & HydraFacial in Vijayawada', 'Professional laser hair removal, tattoo removal, hydrafacial, and advanced skin treatments using safe, modern equipment. Trusted results for 15+ years.')
 
   return (
     <PageTransition>

@@ -11,7 +11,7 @@ import CTABanner from '../components/CTABanner'
 import PageTransition from '../components/PageTransition'
 
 export default function BridalMakeover() {
-  usePageMeta('Bridal & Makeover', 'Bridal makeup packages, party makeup, saree draping, and event makeovers in Vijayawada. View pricing for Premium, Luxe, and Classic Glam packages by Subhashini.')
+  usePageMeta('Best Bridal Makeup Artist in Vijayawada', 'Bridal makeup packages, saree draping, and event makeovers by Vijayawada\'s top bridal artist with 15+ years of experience. Book your wedding look now.')
 
   return (
     <PageTransition>
