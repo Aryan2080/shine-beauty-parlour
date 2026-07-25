@@ -5,7 +5,8 @@ import { siteConfig } from '../data/siteConfig'
 import { galleryCategories, galleryImages } from '../data/faq'
 import hairMultilayerCut from '../assets/hair-multilayer-cut.jpg'
 import hairStraightening1 from '../assets/hair-straightening-1.jpg'
-import hairStraightening2 from '../assets/hair-straightening-2.jpg'
+import hairFeatherLayer from '../assets/hair-feather-layer.jpg'
+import hairLongLayers from '../assets/hair-long-layers.jpg'
 import partyRedSaree from '../assets/party-red-saree.jpg'
 import partyGoldSaree from '../assets/party-gold-saree.jpg'
 import partyGreenSaree from '../assets/party-green-saree.jpg'
@@ -26,7 +27,8 @@ import nailartBlackFrench from '../assets/nailart-black-french.jpg'
 const galleryImageMap = {
   'hair-multilayer-cut': hairMultilayerCut,
   'hair-straightening-1': hairStraightening1,
-  'hair-straightening-2': hairStraightening2,
+  'hair-feather-layer': hairFeatherLayer,
+  'hair-long-layers': hairLongLayers,
   'party-red-saree': partyRedSaree,
   'party-gold-saree': partyGoldSaree,
   'party-green-saree': partyGreenSaree,
