@@ -26,75 +26,78 @@ export default function Header() {
   }, [isMobileMenuOpen])
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg py-2'
-          : 'bg-white/80 backdrop-blur-sm py-3 lg:py-4'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <Link to="/" className="flex flex-col shrink-0">
-          <span className="font-serif text-xl sm:text-2xl font-bold text-primary tracking-wide">
-            {siteConfig.businessName}
-          </span>
-          <span className="text-[10px] sm:text-xs text-secondary tracking-wider uppercase -mt-0.5">
-            {siteConfig.tagline}
-          </span>
-        </Link>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
+          isMobileMenuOpen ? 'z-[70] bg-white py-2' :
+          isScrolled
+            ? 'z-50 bg-white/95 backdrop-blur-md shadow-lg py-2'
+            : 'z-50 bg-white/80 backdrop-blur-sm py-3 lg:py-4'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          <Link to="/" className="flex flex-col shrink-0">
+            <span className="font-serif text-xl sm:text-2xl font-bold text-primary tracking-wide">
+              {siteConfig.businessName}
+            </span>
+            <span className="text-[10px] sm:text-xs text-secondary tracking-wider uppercase -mt-0.5">
+              {siteConfig.tagline}
+            </span>
+          </Link>
 
-        <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className={({ isActive }) =>
-                `px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  isActive
-                    ? 'text-primary bg-blush/60'
-                    : 'text-charcoal-light hover:text-primary hover:bg-blush/30'
-                }`
-              }
+          <nav className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                className={({ isActive }) =>
+                  `px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    isActive
+                      ? 'text-primary bg-blush/60'
+                      : 'text-charcoal-light hover:text-primary hover:bg-blush/30'
+                  }`
+                }
+              >
+                {link.label}
+              </NavLink>
+            ))}
+          </nav>
+
+          <div className="hidden lg:flex items-center gap-3">
+            <div className="flex items-center gap-1 text-sm text-gold">
+              <Star className="w-4 h-4 fill-gold text-gold" />
+              <span className="font-semibold">{siteConfig.googleRating}</span>
+            </div>
+            <a
+              href={`https://wa.me/${siteConfig.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
             >
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
-
-        <div className="hidden lg:flex items-center gap-3">
-          <div className="flex items-center gap-1 text-sm text-gold">
-            <Star className="w-4 h-4 fill-gold text-gold" />
-            <span className="font-semibold">{siteConfig.googleRating}</span>
+              Book Appointment
+            </a>
           </div>
-          <a
-            href={`https://wa.me/${siteConfig.whatsapp}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
-          >
-            Book Appointment
-          </a>
-        </div>
 
-        <button
-          className="lg:hidden p-2 text-charcoal hover:text-primary transition-colors"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-        >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
+          <button
+            className="lg:hidden p-2 text-charcoal hover:text-primary transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </header>
 
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden fixed inset-0 top-[56px] bg-white/98 backdrop-blur-lg z-40"
+            className="lg:hidden fixed inset-0 bg-white z-[60]"
           >
-            <nav className="flex flex-col items-center justify-center h-full gap-2 -mt-12">
+            <nav className="flex flex-col items-center justify-center h-full gap-2">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.path}
@@ -104,6 +107,7 @@ export default function Header() {
                 >
                   <NavLink
                     to={link.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className={({ isActive }) =>
                       `text-2xl font-serif font-medium py-3 transition-colors ${
                         isActive ? 'text-primary' : 'text-charcoal hover:text-primary'
@@ -144,6 +148,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   )
 }
