@@ -231,7 +231,7 @@ export default function Home() {
                   {pkg.popular && (
                     <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-bl-2xl flex items-center gap-1">
                       <Star className="w-3 h-3 fill-white" />
-                      Most Popular
+                      Signature Package
                     </div>
                   )}
                   <div className="p-6 sm:p-8">

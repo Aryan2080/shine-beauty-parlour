@@ -25,7 +25,7 @@ export const faqItems = [
   },
   {
     question: "What are your working hours and how can I book?",
-    answer: "We're open Monday through Sunday, 10:00 AM to 9:00 PM — all seven days a week. You can book an appointment by calling us at +91 63045 40489, sending a WhatsApp message to the same number, or using the booking form on our Contact page. We'll confirm your appointment within a few hours.",
+    answer: "We're open Monday through Sunday, 10:00 AM to 9:00 PM — all seven days a week. You can book an appointment by calling us at +91 74168 15516, sending a WhatsApp message to the same number, or using the booking form on our Contact page. We'll confirm your appointment within a few hours.",
   },
   {
     question: "Do you offer services for all skin types and tones?",

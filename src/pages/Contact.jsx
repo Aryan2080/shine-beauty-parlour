@@ -8,7 +8,7 @@ import SectionHeading from '../components/SectionHeading'
 import PageTransition from '../components/PageTransition'
 
 export default function Contact() {
-  usePageMeta('Contact & Booking', 'Book an appointment at Shine Beauty Parlour, Vijayawada. Call +91 63045 40489, WhatsApp us, or fill out our booking form. Open Mon–Sun, 10 AM – 9 PM.')
+  usePageMeta('Contact & Booking', 'Book an appointment at Shine Beauty Parlour, Vijayawada. Call +91 74168 15516, WhatsApp us, or fill out our booking form. Open Mon–Sun, 10 AM – 9 PM.')
   const [form, setForm] = useState({
     name: '',
     phone: '',

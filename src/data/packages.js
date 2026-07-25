@@ -1,8 +1,8 @@
 export const packages = [
   {
     name: "Premium Bridal",
-    price: "2,000",
-    priceNum: 2000,
+    price: "5,000",
+    priceNum: 5000,
     description: "A beautiful, professional bridal look at an accessible price point.",
     shortFeatures: [
       "Professional bridal makeup",
@@ -19,31 +19,9 @@ export const packages = [
     popular: false,
   },
   {
-    name: "Classic Glam",
-    price: "5,000",
-    priceNum: 5000,
-    description: "Our most popular package — a complete, polished look for your big day.",
-    shortFeatures: [
-      "Full bridal makeup + hairstyle",
-      "Saree draping",
-      "HD/Airbrush finish",
-      "Jewellery setting assistance",
-    ],
-    fullFeatures: [
-      "Full HD/Airbrush bridal makeup",
-      "Bridal hairstyling with accessories",
-      "Professional saree draping",
-      "Jewellery setting assistance",
-      "Skin prep and primer base",
-      "Waterproof and long-lasting products",
-      "Touch-up kit included",
-    ],
-    popular: true,
-  },
-  {
     name: "Luxe Bridal Experience",
-    price: "10,000",
-    priceNum: 10000,
+    price: "20,000",
+    priceNum: 20000,
     description: "The ultimate bridal journey — from trial to reception and beyond.",
     shortFeatures: [
       "Pre-bridal trial session",
@@ -61,6 +39,28 @@ export const packages = [
       "Personal bridal consultation with Subhashini",
       "Touch-up kit and emergency touch-up tips",
       "Complimentary travel within Vijayawada city",
+    ],
+    popular: true,
+  },
+  {
+    name: "Classic Glam",
+    price: "10,000",
+    priceNum: 10000,
+    description: "Our most popular package — a complete, polished look for your big day.",
+    shortFeatures: [
+      "Full bridal makeup + hairstyle",
+      "Saree draping",
+      "HD/Airbrush finish",
+      "Jewellery setting assistance",
+    ],
+    fullFeatures: [
+      "Full HD/Airbrush bridal makeup",
+      "Bridal hairstyling with accessories",
+      "Professional saree draping",
+      "Jewellery setting assistance",
+      "Skin prep and primer base",
+      "Waterproof and long-lasting products",
+      "Touch-up kit included",
     ],
     popular: false,
   },
