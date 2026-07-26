@@ -62,14 +62,14 @@ export default function Home() {
                   href={`https://wa.me/${siteConfig.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center gap-2.5 bg-gold hover:bg-gold-light text-charcoal px-8 py-4 rounded-full text-lg font-bold tracking-wide shadow-lg shadow-gold/30 transition-all hover:-translate-y-0.5"
                 >
                   <MessageCircle className="w-5 h-5" />
                   Book Your Appointment
                 </a>
                 <a
                   href={`tel:${siteConfig.phoneTel}`}
-                  className="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-blush text-primary border-2 border-primary/20 px-8 py-4 rounded-full text-lg font-semibold transition-colors"
+                  className="inline-flex items-center justify-center gap-2.5 bg-transparent hover:bg-primary/5 text-primary border-2 border-primary px-8 py-4 rounded-full text-lg font-bold tracking-wide transition-colors"
                 >
                   <Phone className="w-5 h-5" />
                   Call Now
@@ -198,7 +198,7 @@ export default function Home() {
             <div className="text-center mt-12">
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-charcoal px-8 py-4 rounded-full text-lg font-bold tracking-wide transition-all hover:shadow-lg hover:-translate-y-0.5"
               >
                 View All Services
                 <ArrowRight className="w-5 h-5" />

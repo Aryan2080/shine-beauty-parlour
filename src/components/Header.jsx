@@ -72,7 +72,7 @@ export default function Header() {
               href={`https://wa.me/${siteConfig.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
+              className="bg-gold hover:bg-gold-light text-charcoal px-5 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all hover:shadow-lg hover:-translate-y-0.5"
             >
               Book Appointment
             </a>
@@ -132,7 +132,7 @@ export default function Header() {
                   href={`https://wa.me/${siteConfig.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-full text-lg font-semibold transition-all"
+                  className="bg-gold hover:bg-gold-light text-charcoal px-8 py-3 rounded-full text-lg font-bold tracking-wide transition-all"
                 >
                   Book Appointment
                 </a>

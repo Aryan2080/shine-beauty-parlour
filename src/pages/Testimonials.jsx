@@ -51,7 +51,7 @@ export default function Testimonials() {
                 href={siteConfig.googleReviewsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-charcoal px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all hover:-translate-y-0.5"
               >
                 Read / Write a Review on Google
                 <ExternalLink className="w-4 h-4" />
@@ -103,7 +103,7 @@ export default function Testimonials() {
                 href={siteConfig.googleReviewsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-3.5 rounded-full font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-charcoal px-8 py-3.5 rounded-full font-bold tracking-wide transition-all hover:shadow-lg hover:-translate-y-0.5"
               >
                 Leave Us a Review
                 <ExternalLink className="w-4 h-4" />
