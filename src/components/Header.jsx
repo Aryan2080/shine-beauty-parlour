@@ -28,11 +28,11 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
-          isMobileMenuOpen ? 'z-[70] bg-white py-2' :
+        className={`fixed top-0 left-0 right-0 transition-all duration-300 border-b ${
+          isMobileMenuOpen ? 'z-[70] bg-white py-2 border-gold/40' :
           isScrolled
-            ? 'z-50 bg-white/95 backdrop-blur-md shadow-lg py-2'
-            : 'z-50 bg-white/80 backdrop-blur-sm py-3 lg:py-4'
+            ? 'z-50 bg-white/95 backdrop-blur-md shadow-lg py-2 border-gold/40'
+            : 'z-50 bg-white/80 backdrop-blur-sm py-3 lg:py-4 border-gold/20'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
