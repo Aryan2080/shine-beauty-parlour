@@ -277,10 +277,11 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 lg:py-28 bg-ivory">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading subtitle="Why Us">
-            Why Choose <span className="text-primary italic">Shine Beauty Parlour</span>
+      <section className="py-20 lg:py-28 bg-gradient-to-br from-primary-dark via-primary to-primary-dark relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 30%, #FFD700 0%, transparent 40%), radial-gradient(circle at 80% 70%, #FFD700 0%, transparent 40%)' }} />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading subtitle="Why Us" variant="dark">
+            Why Choose <span className="text-gold italic">Shine Beauty Parlour</span>
           </SectionHeading>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -288,8 +289,8 @@ export default function Home() {
               const Icon = iconMap[point.icon]
               return (
                 <ScrollReveal key={point.title} delay={i * 0.07}>
-                  <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gold/10 text-center h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mx-auto mb-5">
+                  <div className="bg-blush rounded-3xl p-6 sm:p-8 border border-gold/30 text-center h-full hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-1 transition-all duration-300">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold/20 to-gold/10 border border-gold/30 flex items-center justify-center mx-auto mb-5">
                       <Icon className="w-8 h-8 text-primary" />
                     </div>
                     <h3 className="font-serif text-lg font-bold text-charcoal mb-2">{point.title}</h3>

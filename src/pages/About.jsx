@@ -144,10 +144,11 @@ export default function About() {
       </section>
 
       {/* Philosophy / Pillars */}
-      <section className="py-20 lg:py-28 bg-ivory">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading subtitle="Our Approach">
-            The <span className="text-primary italic">Shine</span> Philosophy
+      <section className="py-20 lg:py-28 bg-gradient-to-br from-primary-dark via-primary to-primary-dark relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 30%, #FFD700 0%, transparent 40%), radial-gradient(circle at 80% 70%, #FFD700 0%, transparent 40%)' }} />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading subtitle="Our Approach" variant="dark">
+            The <span className="text-gold italic">Shine</span> Philosophy
           </SectionHeading>
 
           <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
@@ -155,8 +156,8 @@ export default function About() {
               const Icon = pillar.icon
               return (
                 <ScrollReveal key={pillar.title} delay={i * 0.08}>
-                  <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gold/10 h-full">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mb-5">
+                  <div className="bg-blush rounded-3xl p-6 sm:p-8 border border-gold/30 h-full hover:shadow-xl hover:shadow-gold/20 transition-all">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold/20 to-gold/10 border border-gold/30 flex items-center justify-center mb-5">
                       <Icon className="w-7 h-7 text-primary" />
                     </div>
                     <h3 className="font-serif text-xl font-bold text-charcoal mb-3">{pillar.title}</h3>
