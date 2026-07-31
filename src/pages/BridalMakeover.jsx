@@ -48,33 +48,36 @@ export default function BridalMakeover() {
             Signature Bridal & <span className="text-primary italic">Makeover</span> Pricing
           </SectionHeading>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 md:items-stretch">
             {packages.map((pkg, i) => (
               <ScrollReveal key={pkg.name} delay={i * 0.1}>
                 <div
-                  className={`relative rounded-3xl overflow-hidden h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${
+                  className={`group relative rounded-3xl overflow-hidden h-full transition-all duration-300 active:scale-[0.98] ${
                     pkg.popular
-                      ? 'border-2 border-primary bg-gradient-to-b from-white to-blush'
-                      : 'border border-gold/10 bg-white'
+                      ? 'border-2 border-primary bg-gradient-to-b from-blush to-blush-dark shadow-xl shadow-primary/15 md:scale-[1.02]'
+                      : 'border border-primary/20 bg-blush hover:-translate-y-1 hover:shadow-xl'
                   }`}
                 >
-                  {pkg.popular && (
-                    <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-bl-2xl flex items-center gap-1">
-                      <Star className="w-3 h-3 fill-white" />
-                      Signature Package
-                    </div>
+                  {!pkg.popular && (
+                    <div className="pointer-events-none absolute inset-0 bg-white opacity-0 group-hover:opacity-[0.12] transition-opacity duration-300" />
                   )}
-                  <div className="p-6 sm:p-8">
+                  <div className="relative flex flex-col h-full p-6 sm:p-8">
+                    {pkg.popular && (
+                      <div className="inline-flex self-start items-center gap-1.5 bg-primary text-gold text-[10px] sm:text-xs font-bold tracking-wider uppercase whitespace-nowrap px-3 py-1.5 rounded-full mb-4">
+                        <Star className="w-3 h-3 fill-gold" />
+                        Signature Package
+                      </div>
+                    )}
                     <h3 className="font-serif text-2xl font-bold text-charcoal mb-1">{pkg.name}</h3>
                     <p className="text-charcoal-light text-sm mb-4">{pkg.description}</p>
                     <div className="mb-6">
-                      <span className="text-sm text-secondary font-medium">Starting from</span>
+                      <span className="text-sm text-primary font-semibold tracking-wide">Starting from</span>
                       <div className="font-serif text-3xl font-bold text-primary mt-1">₹{pkg.price}</div>
                     </div>
                     <ul className="space-y-3 mb-8">
                       {pkg.fullFeatures.map((f, j) => (
-                        <li key={j} className="flex items-start gap-3 text-sm text-charcoal-light">
-                          <Check className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                        <li key={j} className="flex items-start gap-3 text-sm text-charcoal">
+                          <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                           {f}
                         </li>
                       ))}
@@ -83,10 +86,10 @@ export default function BridalMakeover() {
                       href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(`Hi, I'm interested in the ${pkg.name} package (₹${pkg.price}). Could you share more details and availability?`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold transition-all hover:-translate-y-0.5 ${
+                      className={`mt-auto w-full inline-flex items-center justify-center gap-2 py-3.5 min-h-[48px] rounded-full font-bold tracking-wide transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-blush ${
                         pkg.popular
-                          ? 'bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/20'
-                          : 'bg-ivory hover:bg-blush text-primary border border-primary/20'
+                          ? 'bg-gold hover:bg-gold-light text-charcoal shadow-lg shadow-gold/30'
+                          : 'bg-primary hover:bg-primary-dark text-white'
                       }`}
                     >
                       <MessageCircle className="w-4 h-4" />
@@ -100,7 +103,7 @@ export default function BridalMakeover() {
 
           <ScrollReveal>
             <p className="text-center text-sm text-charcoal-light mt-10 max-w-xl mx-auto italic">
-              Final pricing may vary based on look, products used, and event requirements — contact us for a personalized quote.
+              Final pricing depends on look, products used, and event requirements — contact us for a personalized quote.
             </p>
           </ScrollReveal>
         </div>
