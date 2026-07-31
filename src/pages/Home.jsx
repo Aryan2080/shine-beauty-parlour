@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Phone, MessageCircle, Star, Award, Users, Crown, Zap, Sparkles, Scissors, Gem, Heart, Check, ArrowRight, ShieldCheck, User, Camera, ExternalLink } from 'lucide-react'
-import { siteConfig, trustStrip, whyUsPoints, instagramImages } from '../data/siteConfig'
+import { Phone, MessageCircle, Star, Award, Users, Crown, Zap, Sparkles, Scissors, Gem, Heart, Check, ArrowRight, ShieldCheck, User, ExternalLink } from 'lucide-react'
+import { siteConfig, trustStrip, whyUsPoints } from '../data/siteConfig'
+import InstagramEmbeds from '../components/InstagramEmbeds'
 import { servicePreviewCards } from '../data/services'
 import { packages } from '../data/packages'
 import { testimonials } from '../data/testimonials'
@@ -96,7 +97,7 @@ export default function Home() {
                   <img
                     src={heroBridalImg}
                     alt="Bridal makeup look by Subhashini — Shine Beauty Parlour Vijayawada"
-                    fetchpriority="high"
+                    fetchPriority="high"
                     decoding="async"
                     className="w-full h-full object-cover object-top"
                   />
@@ -388,48 +389,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Instagram Teaser */}
-      <section className="py-16 lg:py-20 bg-white">
+      {/* Instagram Feed */}
+      <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="text-center mb-10">
+            <div className="text-center mb-10 lg:mb-12">
               <span className="text-secondary font-medium tracking-widest uppercase text-sm">Follow Us</span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-charcoal mt-2">
-                <span className="text-primary italic">{siteConfig.instagramHandle}</span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-charcoal mt-2">
+                Latest from <span className="text-primary italic">{siteConfig.instagramHandle}</span>
               </h2>
+              <div className="gold-divider mt-5" />
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
-            {instagramImages.map((img, i) => (
-              <ScrollReveal key={img.id} delay={i * 0.05}>
-                <a
-                  href={siteConfig.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block relative aspect-square rounded-xl overflow-hidden border border-gold/10"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Camera className="w-6 h-6 text-primary/30" />
-                  </div>
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/30 transition-colors flex items-center justify-center">
-                    <Camera className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                </a>
-              </ScrollReveal>
-            ))}
-          </div>
+          <InstagramEmbeds />
 
           <ScrollReveal>
-            <div className="text-center mt-6">
+            <div className="text-center mt-10">
               <a
                 href={siteConfig.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-medium text-sm transition-colors"
+                className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-charcoal px-8 py-4 rounded-full text-lg font-bold tracking-wide shadow-lg shadow-gold/30 transition-all hover:-translate-y-0.5"
               >
-                Follow us on Instagram <ExternalLink className="w-3.5 h-3.5" />
+                Follow Us on Instagram
+                <ExternalLink className="w-4 h-4" />
               </a>
             </div>
           </ScrollReveal>
