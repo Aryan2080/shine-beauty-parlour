@@ -119,6 +119,19 @@ export default function ServicesHub() {
         </div>
       </section>
 
+      {/* Thematic Quote Banner */}
+      <section className="py-16 lg:py-24 bg-blush border-y border-gold/30">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-8 text-center">
+          <ScrollReveal>
+            <span className="text-gold text-3xl sm:text-4xl font-serif leading-none block mb-2" aria-hidden="true">&ldquo;</span>
+            <blockquote className="font-serif font-bold text-charcoal text-2xl sm:text-3xl lg:text-4xl leading-snug">
+              Beauty begins the moment you decide to be yourself.
+            </blockquote>
+            <div className="gold-divider mt-6" />
+          </ScrollReveal>
+        </div>
+      </section>
+
       <section className="py-16 lg:py-24 bg-ivory">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">

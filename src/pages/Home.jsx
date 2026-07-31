@@ -47,6 +47,12 @@ export default function Home() {
                 <span className="text-primary italic">Shine</span>
               </h1>
 
+              <blockquote className="font-serif italic text-lg sm:text-xl text-primary leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0 pl-4 border-l-2 border-gold">
+                <span className="text-gold not-italic mr-1">&ldquo;</span>
+                Beauty is self confidence applied directly to the face.
+                <span className="text-gold not-italic ml-1">&rdquo;</span>
+              </blockquote>
+
               <p className="text-lg sm:text-xl text-charcoal-light leading-relaxed mb-4 max-w-xl mx-auto lg:mx-0">
                 Bridal, Party & Complete Beauty Care — Skin, Hair, Nails, Body Care,
                 and Advanced Machine Treatments by{' '}
