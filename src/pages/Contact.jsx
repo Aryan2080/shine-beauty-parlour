@@ -54,7 +54,7 @@ export default function Contact() {
   }
 
   const inputClasses = (field) =>
-    `w-full px-4 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary ${
+    `w-full px-4 py-3 rounded-xl border text-base sm:text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary ${
       errors[field] ? 'border-red-400 bg-red-50/50' : 'border-gold/15 bg-ivory hover:border-secondary/40'
     }`
 

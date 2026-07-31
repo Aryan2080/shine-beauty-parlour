@@ -96,6 +96,8 @@ export default function Home() {
                   <img
                     src={heroBridalImg}
                     alt="Bridal makeup look by Subhashini — Shine Beauty Parlour Vijayawada"
+                    fetchpriority="high"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
@@ -140,6 +142,8 @@ export default function Home() {
                   <img
                     src={subhashiniImg}
                     alt="Subhashini — Owner & Professional Makeup Artist, Shine Beauty Parlour"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
@@ -400,7 +404,7 @@ export default function Home() {
                   href={siteConfig.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative aspect-square rounded-xl overflow-hidden border border-gold/10"
+                  className="group block relative aspect-square rounded-xl overflow-hidden border border-gold/10"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
                   <div className="absolute inset-0 flex items-center justify-center">

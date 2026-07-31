@@ -79,7 +79,7 @@ export default function Header() {
           </div>
 
           <button
-            className="lg:hidden p-2 text-white hover:text-gold transition-colors"
+            className="lg:hidden p-3 -mr-1 text-white hover:text-gold transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
