@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Phone, MessageCircle, Star, Award, Users, Crown, Zap, Sparkles, Scissors, Gem, Heart, Check, ArrowRight, ShieldCheck, User, Camera, ExternalLink } from 'lucide-react'
-import { siteConfig, trustStrip, whyUsPoints, instagramImages } from '../data/siteConfig'
+import { Phone, MessageCircle, Star, Award, Users, Crown, Zap, Sparkles, Scissors, Gem, Heart, Check, ArrowRight, ShieldCheck, User, ExternalLink } from 'lucide-react'
+import { siteConfig, trustStrip, whyUsPoints } from '../data/siteConfig'
+import InstagramEmbeds from '../components/InstagramEmbeds'
 import { servicePreviewCards } from '../data/services'
 import { packages } from '../data/packages'
 import { testimonials } from '../data/testimonials'
@@ -47,6 +48,12 @@ export default function Home() {
                 <span className="text-primary italic">Shine</span>
               </h1>
 
+              <blockquote className="font-serif italic text-lg sm:text-xl text-primary leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0 pl-4 border-l-2 border-gold">
+                <span className="text-gold not-italic mr-1">&ldquo;</span>
+                Beauty is self confidence applied directly to the face.
+                <span className="text-gold not-italic ml-1">&rdquo;</span>
+              </blockquote>
+
               <p className="text-lg sm:text-xl text-charcoal-light leading-relaxed mb-4 max-w-xl mx-auto lg:mx-0">
                 Bridal, Party & Complete Beauty Care — Skin, Hair, Nails, Body Care,
                 and Advanced Machine Treatments by{' '}
@@ -62,14 +69,14 @@ export default function Home() {
                   href={`https://wa.me/${siteConfig.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center gap-2.5 bg-gold hover:bg-gold-light text-charcoal px-8 py-4 rounded-full text-lg font-bold tracking-wide shadow-lg shadow-gold/30 transition-all hover:-translate-y-0.5"
                 >
                   <MessageCircle className="w-5 h-5" />
                   Book Your Appointment
                 </a>
                 <a
                   href={`tel:${siteConfig.phoneTel}`}
-                  className="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-blush text-primary border-2 border-primary/20 px-8 py-4 rounded-full text-lg font-semibold transition-colors"
+                  className="inline-flex items-center justify-center gap-2.5 bg-transparent hover:bg-primary/5 text-primary border-2 border-primary px-8 py-4 rounded-full text-lg font-bold tracking-wide transition-colors"
                 >
                   <Phone className="w-5 h-5" />
                   Call Now
@@ -90,6 +97,8 @@ export default function Home() {
                   <img
                     src={heroBridalImg}
                     alt="Bridal makeup look by Subhashini — Shine Beauty Parlour Vijayawada"
+                    fetchPriority="high"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
@@ -134,6 +143,8 @@ export default function Home() {
                   <img
                     src={subhashiniImg}
                     alt="Subhashini — Owner & Professional Makeup Artist, Shine Beauty Parlour"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
@@ -198,7 +209,7 @@ export default function Home() {
             <div className="text-center mt-12">
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-charcoal px-8 py-4 rounded-full text-lg font-bold tracking-wide transition-all hover:shadow-lg hover:-translate-y-0.5"
               >
                 View All Services
                 <ArrowRight className="w-5 h-5" />
@@ -218,33 +229,36 @@ export default function Home() {
             Signature Bridal & <span className="text-primary italic">Makeover</span> Packages
           </SectionHeading>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8 md:items-stretch">
             {packages.map((pkg, i) => (
               <ScrollReveal key={pkg.name} delay={i * 0.1}>
                 <div
-                  className={`relative rounded-3xl overflow-hidden h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${
+                  className={`group relative rounded-3xl overflow-hidden h-full transition-all duration-300 active:scale-[0.98] ${
                     pkg.popular
-                      ? 'border-2 border-primary bg-gradient-to-b from-white to-blush'
-                      : 'border border-gold/10 bg-white'
+                      ? 'border-2 border-primary bg-gradient-to-b from-blush to-blush-dark shadow-xl shadow-primary/15 md:scale-[1.02]'
+                      : 'border border-primary/20 bg-blush hover:-translate-y-1 hover:shadow-xl'
                   }`}
                 >
-                  {pkg.popular && (
-                    <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-bl-2xl flex items-center gap-1">
-                      <Star className="w-3 h-3 fill-white" />
-                      Signature Package
-                    </div>
+                  {!pkg.popular && (
+                    <div className="pointer-events-none absolute inset-0 bg-white opacity-0 group-hover:opacity-[0.12] transition-opacity duration-300" />
                   )}
-                  <div className="p-6 sm:p-8">
+                  <div className="relative flex flex-col h-full p-6 sm:p-8">
+                    {pkg.popular && (
+                      <div className="inline-flex self-start items-center gap-1.5 bg-primary text-gold text-[10px] sm:text-xs font-bold tracking-wider uppercase whitespace-nowrap px-3 py-1.5 rounded-full mb-4">
+                        <Star className="w-3 h-3 fill-gold" />
+                        Signature Package
+                      </div>
+                    )}
                     <h3 className="font-serif text-2xl font-bold text-charcoal mb-1">{pkg.name}</h3>
                     <p className="text-charcoal-light text-sm mb-4">{pkg.description}</p>
                     <div className="mb-6">
-                      <span className="text-sm text-secondary font-medium">Starting from</span>
+                      <span className="text-sm text-primary font-semibold tracking-wide">Starting from</span>
                       <div className="font-serif text-3xl font-bold text-primary mt-1">₹{pkg.price}</div>
                     </div>
                     <ul className="space-y-3 mb-8">
                       {pkg.shortFeatures.map((f, j) => (
-                        <li key={j} className="flex items-start gap-3 text-sm text-charcoal-light">
-                          <Check className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
+                        <li key={j} className="flex items-start gap-3 text-sm text-charcoal">
+                          <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                           {f}
                         </li>
                       ))}
@@ -253,10 +267,10 @@ export default function Home() {
                       href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(`Hi, I'm interested in the ${pkg.name} package (₹${pkg.price}). Could you share more details?`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-full font-semibold transition-all hover:-translate-y-0.5 ${
+                      className={`mt-auto w-full inline-flex items-center justify-center gap-2 py-3.5 min-h-[48px] rounded-full font-bold tracking-wide transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-blush ${
                         pkg.popular
-                          ? 'bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/20'
-                          : 'bg-ivory hover:bg-blush text-primary border border-primary/20'
+                          ? 'bg-gold hover:bg-gold-light text-charcoal shadow-lg shadow-gold/30'
+                          : 'bg-primary hover:bg-primary-dark text-white'
                       }`}
                     >
                       <MessageCircle className="w-4 h-4" />
@@ -270,17 +284,18 @@ export default function Home() {
 
           <ScrollReveal>
             <p className="text-center text-sm text-charcoal-light mt-10 max-w-xl mx-auto italic">
-              Final pricing may vary based on look, products used, and event requirements — contact us for a personalized quote.
+              Final pricing depends on look, products used, and event requirements — contact us for a personalized quote.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 lg:py-28 bg-ivory">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading subtitle="Why Us">
-            Why Choose <span className="text-primary italic">Shine Beauty Parlour</span>
+      <section className="py-20 lg:py-28 bg-gradient-to-br from-primary-dark via-primary to-primary-dark relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 30%, #FFD700 0%, transparent 40%), radial-gradient(circle at 80% 70%, #FFD700 0%, transparent 40%)' }} />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading subtitle="Why Us" variant="dark">
+            Why Choose <span className="text-gold italic">Shine Beauty Parlour</span>
           </SectionHeading>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -288,8 +303,8 @@ export default function Home() {
               const Icon = iconMap[point.icon]
               return (
                 <ScrollReveal key={point.title} delay={i * 0.07}>
-                  <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gold/10 text-center h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mx-auto mb-5">
+                  <div className="bg-blush rounded-3xl p-6 sm:p-8 border border-gold/30 text-center h-full hover:shadow-xl hover:shadow-gold/20 hover:-translate-y-1 transition-all duration-300">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-gold/20 to-gold/10 border border-gold/30 flex items-center justify-center mx-auto mb-5">
                       <Icon className="w-8 h-8 text-primary" />
                     </div>
                     <h3 className="font-serif text-lg font-bold text-charcoal mb-2">{point.title}</h3>
@@ -374,48 +389,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Instagram Teaser */}
-      <section className="py-16 lg:py-20 bg-white">
+      {/* Instagram Feed */}
+      <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="text-center mb-10">
+            <div className="text-center mb-10 lg:mb-12">
               <span className="text-secondary font-medium tracking-widest uppercase text-sm">Follow Us</span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-charcoal mt-2">
-                <span className="text-primary italic">{siteConfig.instagramHandle}</span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-charcoal mt-2">
+                Latest from <span className="text-primary italic">{siteConfig.instagramHandle}</span>
               </h2>
+              <div className="gold-divider mt-5" />
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
-            {instagramImages.map((img, i) => (
-              <ScrollReveal key={img.id} delay={i * 0.05}>
-                <a
-                  href={siteConfig.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative aspect-square rounded-xl overflow-hidden border border-gold/10"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Camera className="w-6 h-6 text-primary/30" />
-                  </div>
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/30 transition-colors flex items-center justify-center">
-                    <Camera className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                </a>
-              </ScrollReveal>
-            ))}
-          </div>
+          <InstagramEmbeds />
 
           <ScrollReveal>
-            <div className="text-center mt-6">
+            <div className="text-center mt-10">
               <a
                 href={siteConfig.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-medium text-sm transition-colors"
+                className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-charcoal px-8 py-4 rounded-full text-lg font-bold tracking-wide shadow-lg shadow-gold/30 transition-all hover:-translate-y-0.5"
               >
-                Follow us on Instagram <ExternalLink className="w-3.5 h-3.5" />
+                Follow Us on Instagram
+                <ExternalLink className="w-4 h-4" />
               </a>
             </div>
           </ScrollReveal>

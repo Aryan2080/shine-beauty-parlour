@@ -16,7 +16,7 @@ export default function StickyMobileCTA() {
           href={`https://wa.me/${siteConfig.whatsapp}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white py-3.5 rounded-full font-semibold text-sm transition-colors"
+          className="flex-1 inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-charcoal py-3.5 rounded-full font-bold tracking-wide text-sm transition-colors"
         >
           <MessageCircle className="w-4 h-4" />
           WhatsApp

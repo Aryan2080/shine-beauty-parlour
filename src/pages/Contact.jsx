@@ -54,7 +54,7 @@ export default function Contact() {
   }
 
   const inputClasses = (field) =>
-    `w-full px-4 py-3 rounded-xl border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary ${
+    `w-full px-4 py-3 rounded-xl border text-base sm:text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary ${
       errors[field] ? 'border-red-400 bg-red-50/50' : 'border-gold/15 bg-ivory hover:border-secondary/40'
     }`
 
@@ -122,7 +122,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-3.5 rounded-full font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-light text-charcoal px-8 py-3.5 rounded-full font-bold tracking-wide transition-all hover:shadow-lg hover:-translate-y-0.5"
                 >
                   <MessageCircle className="w-5 h-5" />
                   Send via WhatsApp

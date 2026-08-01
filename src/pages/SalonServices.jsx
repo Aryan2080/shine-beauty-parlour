@@ -48,7 +48,7 @@ export default function SalonServices() {
                 href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Hi, I'm looking for a specific service not listed on your website. Could you help?")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-4 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-full font-semibold transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 mt-4 bg-gold hover:bg-gold-light text-charcoal px-6 py-3 rounded-full font-bold tracking-wide transition-all hover:-translate-y-0.5"
               >
                 <MessageCircle className="w-4 h-4" />
                 Ask Us Directly on WhatsApp

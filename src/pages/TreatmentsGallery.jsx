@@ -87,7 +87,7 @@ export default function TreatmentsGallery() {
                 <button
                   key={cat}
                   onClick={() => { setActiveCategory(cat); setLightboxIndex(null) }}
-                  className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-medium transition-all ${
+                  className={`px-4 sm:px-5 py-2.5 min-h-[44px] rounded-full text-sm font-medium transition-all ${
                     activeCategory === cat
                       ? 'bg-primary text-white shadow-md'
                       : 'bg-white text-charcoal-light border border-gold/15 hover:border-primary/30 hover:text-charcoal'

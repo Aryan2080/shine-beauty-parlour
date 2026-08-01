@@ -28,19 +28,19 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
-          isMobileMenuOpen ? 'z-[70] bg-white py-2' :
+        className={`fixed top-0 left-0 right-0 transition-all duration-300 border-b-2 border-gold/60 bg-primary-dark ${
+          isMobileMenuOpen ? 'z-[70] py-2' :
           isScrolled
-            ? 'z-50 bg-white/95 backdrop-blur-md shadow-lg py-2'
-            : 'z-50 bg-white/80 backdrop-blur-sm py-3 lg:py-4'
+            ? 'z-50 shadow-lg shadow-black/20 py-2'
+            : 'z-50 py-3 lg:py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <Link to="/" className="flex flex-col shrink-0">
-            <span className="font-serif text-xl sm:text-2xl font-bold text-primary tracking-wide">
+            <span className="font-serif text-xl sm:text-2xl font-bold text-gold tracking-wide">
               {siteConfig.businessName}
             </span>
-            <span className="text-[10px] sm:text-xs text-secondary tracking-wider uppercase -mt-0.5">
+            <span className="text-[10px] sm:text-xs text-white/80 tracking-wider uppercase -mt-0.5">
               {siteConfig.tagline}
             </span>
           </Link>
@@ -51,10 +51,10 @@ export default function Header() {
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  `px-3 py-2 text-sm font-bold tracking-wide rounded-lg transition-colors ${
                     isActive
-                      ? 'text-primary bg-blush/60'
-                      : 'text-charcoal-light hover:text-primary hover:bg-blush/30'
+                      ? 'text-gold border-b-2 border-gold rounded-none'
+                      : 'text-white hover:text-gold'
                   }`
                 }
               >
@@ -72,14 +72,14 @@ export default function Header() {
               href={`https://wa.me/${siteConfig.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5"
+              className="bg-gold hover:bg-gold-light text-charcoal px-5 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all hover:shadow-lg hover:shadow-gold/40 hover:-translate-y-0.5"
             >
               Book Appointment
             </a>
           </div>
 
           <button
-            className="lg:hidden p-2 text-charcoal hover:text-primary transition-colors"
+            className="lg:hidden p-3 -mr-1 text-white hover:text-gold transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
@@ -95,7 +95,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden fixed inset-0 bg-white z-[60]"
+            className="lg:hidden fixed inset-0 bg-primary-dark z-[60]"
           >
             <nav className="flex flex-col items-center justify-center h-full gap-2">
               {navLinks.map((link, i) => (
@@ -110,7 +110,7 @@ export default function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={({ isActive }) =>
                       `text-2xl font-serif font-medium py-3 transition-colors ${
-                        isActive ? 'text-primary' : 'text-charcoal hover:text-primary'
+                        isActive ? 'text-gold' : 'text-white hover:text-gold'
                       }`
                     }
                   >
@@ -132,13 +132,13 @@ export default function Header() {
                   href={`https://wa.me/${siteConfig.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-full text-lg font-semibold transition-all"
+                  className="bg-gold hover:bg-gold-light text-charcoal px-8 py-3 rounded-full text-lg font-bold tracking-wide transition-all"
                 >
                   Book Appointment
                 </a>
                 <a
                   href={`tel:${siteConfig.phoneTel}`}
-                  className="flex items-center gap-2 text-charcoal-light hover:text-primary transition-colors"
+                  className="flex items-center gap-2 text-white hover:text-gold transition-colors"
                 >
                   <Phone className="w-5 h-5" />
                   <span className="font-medium">Call Now</span>

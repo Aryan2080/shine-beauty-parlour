@@ -126,7 +126,7 @@ export default function Gallery() {
                 <button
                   key={cat}
                   onClick={() => { setActiveCategory(cat); setLightboxIndex(null) }}
-                  className={`px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                  className={`px-4 sm:px-5 py-2.5 min-h-[44px] rounded-full text-sm font-medium transition-all ${
                     activeCategory === cat
                       ? 'bg-primary text-white shadow-md shadow-primary/20'
                       : 'bg-blush text-charcoal-light hover:bg-blush-dark hover:text-primary'
@@ -155,6 +155,8 @@ export default function Gallery() {
                     <img
                       src={galleryImageMap[img.image]}
                       alt={img.alt}
+                      loading="lazy"
+                      decoding="async"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                   ) : (
