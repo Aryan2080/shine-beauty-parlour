@@ -1,0 +1,26 @@
+# Netlify build configuration for Shine Beauty Parlour
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Pin Node so builds match local. Bump if you upgrade locally.
+  NODE_VERSION = "20"
+
+# SPA fallback — React Router owns client-side routing, so every
+# unmatched path must serve index.html (status 200, not a redirect
+# that would swap the URL). Without this, /about, /services, etc.
+# 404 on direct load or refresh.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Long-cache the Vite-hashed asset bundles. index.html stays short-cached
+# by default so new deploys are picked up immediately.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
