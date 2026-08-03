@@ -1,8 +1,8 @@
 export const packages = [
   {
     name: "Premium Bridal",
-    price: "5,000",
-    priceNum: 5000,
+    price: "10,000",
+    priceNum: 10000,
     description: "A beautiful, professional bridal look at an accessible price point.",
     shortFeatures: [
       "Professional bridal makeup",
@@ -44,8 +44,8 @@ export const packages = [
   },
   {
     name: "Classic Glam",
-    price: "10,000",
-    priceNum: 10000,
+    price: "15,000",
+    priceNum: 15000,
     description: "Our most popular package — a complete, polished look for your big day.",
     shortFeatures: [
       "Full bridal makeup + hairstyle",
